@@ -1,0 +1,28 @@
+以下均为参数增大时曲线变化
+v_4,  [1    ~  50]: w-nullcline变平缓， 调大v_4使交点位于V-nullcline左半支 >45
+v_3,  [-10  ~  10]: w-nullcline上升支右移，配合较大v_4进行调整，不应过大（R应为稳定结点
+v_1,  [-10  ~  10]: v-nullcline右峰逐渐下降
+v_2,  [1    ~  50]: v-nullcline右峰从左上向右下下降，左谷从右下向左上上升
+g_Ca, [1    ~   8]: v-nullcline右峰逐渐上升
+v_Ca, [50   ~ 150]: v-nullcline右峰逐渐上升
+g_K,  [4    ~  12]: v-nullcline整体（峰和谷）均下降
+v_K,  [-120 ~ -60]: v-nullcline整体（峰和谷）均上升
+g_L,  [0.02 ~ 4.1]: v-nullcline右峰逐渐下降
+v_L,  [-90  ~ -30]: v-nullcline左降支带着右侧上升
+I,    [10   ~ 200]: v-nullcline整体（峰和谷）均上升
+phi,  [0.01 ~ 0.7]: w的time scale变大，整体轨迹横向被压缩 *能看到V达到最低点后的回弹*
+C,    [1    ~  60]: V的time scale变小，整体轨迹横向被压缩（压缩角度偏右）
+
+v_3, v_4控制w-nullcline
+v_1, g_Ca, v_Ca, g_L只控制右峰考虑只调整一个
+v_L主要调整左降支位置 重点调
+v_K, g_K，I调控方向相反，考虑只调一个
+phi, C调整time scale 复杂 考虑调整V到达最低后的回弹速度
+
+v_2变化复杂暂时不考虑调
+
+I单独考虑
+
+
+{'C', 'phi', 'g_{Ca}', 'v_{L}','v_3', 'v_4'}, {3, 0.2, 6.7, -80, 5, 30}
+I给cyclic exponential decay current 较好复现
