@@ -16,7 +16,6 @@ end
 for i = 1:up_length-1
     I_up(i + 1) = I_up(i) - (I_up(i)/tau_up) * step;
 end
-
 for i = 1:int64(time_length/section_length)
     I((i-1)*section_length + 1:(i-1)*section_length + up_length) = fliplr(I_up);
     I((i-1)*section_length + up_length + 1:i*section_length) = I_down;

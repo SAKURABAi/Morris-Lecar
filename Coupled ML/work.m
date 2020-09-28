@@ -1,1 +1,1 @@
-Plot_Morris_Lecar(1000, 100, 2500);
+Plot_Morris_Lecar(1000, 50, 2500);
