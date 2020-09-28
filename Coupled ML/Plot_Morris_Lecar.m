@@ -7,7 +7,7 @@ params = struct('C', 3, 'g_Ca', 6.7, 'g_K', 8, 'g_L', 2, 'g_gap', 0.0,...
 step = 0.01;
 t_span = 0:step:time;
 cell_num = 20;
-
+section_time = 500;
 initPos = [-11 0.01;
            -10.9 0.01;
            -10.8 0.01;
@@ -44,7 +44,7 @@ for i = 1:cell_num
     disp(['Processing: cell ' cell_idx]);
     
     % apply current
-    I = set_modified_oscillatory_current_sequence(length(t_span), step, tau_up, tau_down, 500);
+    I = set_modified_oscillatory_current_sequence(length(t_span), step, tau_up, tau_down, section_time);
 
     [t, track] = ode45(@Morris_Lecar, t_span, initPos, [], I, step, params);
 
