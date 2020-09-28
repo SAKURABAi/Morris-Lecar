@@ -44,7 +44,7 @@ for i = 1:cell_num
     disp(['Processing: cell ' cell_idx]);
     
     % apply current
-    I = set_modified_current_sequence(length(t_span), step, tau_up, tau_down, 500);
+    I = set_modified_oscillatory_current_sequence(length(t_span), step, tau_up, tau_down, 500);
 
     [t, track] = ode45(@Morris_Lecar, t_span, initPos, [], I, step, params);
 

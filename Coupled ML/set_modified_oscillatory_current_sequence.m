@@ -1,4 +1,4 @@
-function I = set_modified_current_sequence(time_length, step, tau_up, tau_down, section_time, I_max)
+function I = set_modified_oscillatory_current_sequence(time_length, step, tau_up, tau_down, section_time, I_max)
 
 if nargin == 5
     I_max = 100;
