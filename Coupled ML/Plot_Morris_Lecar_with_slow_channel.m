@@ -42,7 +42,7 @@ for i = 1:cell_num
     set(h,'visible','off', 'position',[0,0,1080,540]);
 %   plot V over t
     plot(t, track(:, i), 'k', 'LineWidth', 2); 
-    axis([0, time, -50, 50]);
+    axis([0, time, -65, 65]);
     xlabel('\itt', 'Fontsize', 14);
     ylabel('\itV', 'Fontsize', 14);
     title(['Cell ' cell_idx], 'Fontsize', 14);
@@ -57,6 +57,7 @@ end
 figure(cell_num+1);
 xlabel('\itt', 'Fontsize', 14);
 ylabel('\itV', 'Fontsize', 14);
+axis([0, time, -65, 65]);
 legend({'cell 1', 'cell 2', 'cell 3', 'cell 4', 'cell 5', 'cell 6'});
 print(g, [Folder 'total.jpg'], '-djpeg', '-r300');
 close(g);
