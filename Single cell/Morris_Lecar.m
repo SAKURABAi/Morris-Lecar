@@ -24,6 +24,7 @@ w_inf = 0.5 * (1 + tanh((V - v_3)/v_4));
 m_inf = 0.5 * (1 + tanh((V - v_1)/v_2));
 %}
 
-dvdt = (I(int64(t/step+1)) - g_Ca*m_inf(V, [v_1, v_2])*(V-v_Ca) - g_K*(w)*(V-v_K) - g_L*(V-v_L)) / C;
+% dvdt = (I(int64(t/step+1)) - g_Ca*m_inf(V, [v_1, v_2])*(V-v_Ca) - g_K*(w)*(V-v_K) - g_L*(V-v_L)) / C;
+dvdt = (90 - g_Ca*m_inf(V, [v_1, v_2])*(V-v_Ca)) / C;
 dwdt = phi * (w_inf(V, [v_3, v_4])-w) / tau_w(V, [v_3, v_4]);
 dy = [dvdt; dwdt];

@@ -1,6 +1,7 @@
 function dy = Morris_Lecar(t, y, I, step, params)
 % differential equations for Morris Lecar model
 % params: [C, g_Ca, g_K, g_L, v_Ca, v_K, v_L, phi, v_1, v_2, v_3, v_4, g_gap]
+
 cell_num = length(y) / 2; 
 C     = params.C;
 g_Ca  = params.g_Ca;
@@ -30,10 +31,10 @@ for i = 1:cell_num
     end 
     if i == 1
         dvdt(i) = (I(int64(t/step+1)) - g_Ca*m_inf(V(i), [v_1, v_2])*(V(i)-v_Ca) - g_K*w(i)*(V(i)-v_K) - g_L*(V(i)-v_L) - gap_junction) / C;
+%         dvdt(i) = (I(int64(t/step+1)) - g_Ca*m_inf(V(i), [v_1, v_2])*(V(i)-v_Ca) - g_K*w(i)*(V(i)-v_K) - g_L*(V(i)-v_L)) / C;
     else
         dvdt(i) = (- g_Ca*m_inf(V(i), [v_1, v_2])*(V(i)-v_Ca) - g_K*w(i)*(V(i)-v_K) - g_L*(V(i)-v_L) - gap_junction) / C;
     end
-%     dvdt(i) = (I(int64(t/step+1)) - g_Ca*m_inf(V(i), [v_1, v_2])*(V(i)-v_Ca) - g_K*w(i)*(V(i)-v_K) - g_L*(V(i)-v_L) - gap_junction) / C;
     dwdt(i) = phi * (w_inf(V(i), [v_3, v_4])-w(i)) / tau_w(V(i), [v_3, v_4]);
 end
 dy = [dvdt; dwdt];
