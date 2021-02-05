@@ -55,6 +55,7 @@ for i = 1:cell_num
     axis([0, time/1000, -50, 40]);
     xlabel('$t\ (\mathrm{s})$','Interpreter','LaTex', 'Fontsize', 14);
     ylabel('$V\ (\mathrm{mV})$','Interpreter','LaTex', 'Fontsize', 14);
+
     title(['Cell ' cell_idx], 'Fontsize', 14);
     set(gca,'XAxisLocation','origin','ticklabelinterpreter','latex','tickdir','out')
     
@@ -72,6 +73,7 @@ axis([0, time/1000, -50, 40]);
 set(gca,'ticklabelinterpreter','latex','tickdir','out')
 legend({'$\mathrm{cell}\ 1$', '$\mathrm{cell}\ 2$', '$\mathrm{cell}\ 3$', '$\mathrm{cell}\ 4$', '$\mathrm{cell}\ 5$', '$\mathrm{cell}\ 6$'}, 'interpreter', 'LaTex');
 print(g, [Folder 'total.jpg'], '-djpeg', '-r600');
+
 close(g);
 timespend = toc;
 disp(['Total time cost: ' num2str(timespend) ' s']);
